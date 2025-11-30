@@ -8,27 +8,30 @@
 
   <style>
     :root {
-      --heal-brown: #b66a37;
-      --heal-brown-dark: #8c4f27;
-      --heal-cream: #fbeee4;
-      --text-main: #faf7f4;
-      --text-muted: #f0d7c3;
-      --accent: #f7c18f;
-      --shadow-soft: 0 14px 30px rgba(0, 0, 0, 0.22);
+      --heal-bg: #a24c24;
+      --heal-bg-dark: #7d3a1a;
+      --text-main: #efe6db;
+      --text-muted: #f3d7c0;
+      --accent: #ffd1a3;
+      --surface-soft: rgba(0, 0, 0, 0.16);
+      --surface-strong: rgba(0, 0, 0, 0.26);
       --radius-xl: 24px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.28);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     }
 
     body {
-      background: var(--heal-brown);
+      background: var(--heal-bg);
       color: var(--text-main);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
@@ -42,9 +45,9 @@
     }
 
     .page {
-      max-width: 1180px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 18px 18px 64px;
+      padding: 20px 18px 64px;
     }
 
     /* NAVBAR */
@@ -52,12 +55,16 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 6px 0 10px;
+      padding: 8px 0 10px;
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: linear-gradient(to bottom, rgba(182,106,55,0.98), rgba(182,106,55,0.92));
-      backdrop-filter: blur(10px);
+      z-index: 20;
+      background: linear-gradient(
+        to bottom,
+        rgba(162, 76, 36, 0.98),
+        rgba(162, 76, 36, 0.9)
+      );
+      backdrop-filter: blur(12px);
     }
 
     .nav-left {
@@ -67,12 +74,12 @@
     }
 
     .logo-mark {
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
       border-radius: 12px;
       overflow: hidden;
       box-shadow: var(--shadow-soft);
-      background: #fff;
+      background: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -86,31 +93,32 @@
 
     .nav-brand-text {
       font-family: "Georgia", "Times New Roman", serif;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       text-transform: lowercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
     }
 
     .nav-links {
       display: flex;
       gap: 18px;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
     }
 
     .nav-links a {
       opacity: 0.9;
       position: relative;
+      padding-bottom: 2px;
     }
 
     .nav-links a::after {
       content: "";
       position: absolute;
       left: 0;
-      bottom: -3px;
+      bottom: -2px;
       width: 0;
       height: 2px;
       background: var(--accent);
-      transition: width 0.22s ease-out;
+      transition: width 0.2s ease-out;
     }
 
     .nav-links a:hover::after {
@@ -122,13 +130,13 @@
       border-radius: 999px;
       border: 1px solid var(--accent);
       font-size: 0.9rem;
-      background: rgba(0, 0, 0, 0.16);
+      background: var(--surface-soft);
       cursor: pointer;
-      transition: background 0.2s ease, transform 0.12s ease;
+      transition: background 0.15s ease, transform 0.1s ease;
     }
 
     .nav-cta:hover {
-      background: rgba(0, 0, 0, 0.26);
+      background: var(--surface-strong);
       transform: translateY(-1px);
     }
 
@@ -142,8 +150,8 @@
     }
 
     .eyebrow {
-      font-size: 0.85rem;
-      letter-spacing: 0.18em;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 10px;
@@ -151,12 +159,12 @@
 
     .hero h1 {
       font-family: "Georgia", "Times New Roman", serif;
-      font-size: clamp(2.4rem, 4vw, 3.3rem);
-      margin-bottom: 14px;
+      font-size: clamp(2.6rem, 4vw, 3.2rem);
+      margin-bottom: 12px;
     }
 
     .hero-sub {
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: var(--text-muted);
       margin-bottom: 20px;
       max-width: 560px;
@@ -165,23 +173,23 @@
     .hero-bullets {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 26px;
+      gap: 10px;
+      margin-bottom: 24px;
     }
 
     .pill {
       padding: 7px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      font-size: 0.8rem;
-      background: rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(239, 230, 219, 0.25);
+      font-size: 0.78rem;
+      background: var(--surface-soft);
       white-space: nowrap;
     }
 
     .hero-ctas {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
       align-items: center;
       margin-bottom: 10px;
     }
@@ -190,46 +198,47 @@
       padding: 12px 22px;
       border-radius: 999px;
       border: none;
-      background: #fffaf4;
-      color: var(--heal-brown-dark);
+      background: #efe6db;
+      color: #5b2b16;
       font-weight: 600;
       cursor: pointer;
-      font-size: 0.98rem;
+      font-size: 0.95rem;
       box-shadow: var(--shadow-soft);
-      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.2s ease;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
-      background: #fff3e4;
+      box-shadow: 0 20px 46px rgba(0, 0, 0, 0.35);
+      background: #f6eee4;
     }
 
     .btn-ghost {
-      padding: 11px 20px;
+      padding: 11px 18px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.4);
+      border: 1px solid rgba(239, 230, 219, 0.5);
       background: transparent;
       color: var(--text-main);
       cursor: pointer;
-      font-size: 0.95rem;
-      transition: background 0.2s ease, transform 0.12s ease;
+      font-size: 0.92rem;
+      transition: background 0.15s ease, transform 0.1s ease;
     }
 
     .btn-ghost:hover {
-      background: rgba(0, 0, 0, 0.18);
+      background: var(--surface-soft);
       transform: translateY(-1px);
     }
 
     .hero-note {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
+      margin-top: 4px;
     }
 
     .hero-card {
-      background: rgba(0, 0, 0, 0.18);
+      background: var(--surface-strong);
       border-radius: var(--radius-xl);
-      padding: 20px 20px 22px;
+      padding: 22px 20px 24px;
       box-shadow: var(--shadow-soft);
       position: relative;
       overflow: hidden;
@@ -239,8 +248,12 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.16), transparent 60%);
-      opacity: 0.9;
+      background: radial-gradient(
+        circle at top left,
+        rgba(255, 209, 163, 0.4),
+        transparent 60%
+      );
+      opacity: 0.8;
       pointer-events: none;
     }
 
@@ -249,18 +262,18 @@
       z-index: 1;
     }
 
-    .hero-card h2 {
-      font-size: 1.4rem;
-      margin-bottom: 12px;
-      font-family: "Georgia", "Times New Roman", serif;
-    }
-
     .hero-card-tag {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
       margin-bottom: 6px;
       color: var(--accent);
+    }
+
+    .hero-card h2 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      font-family: "Georgia", "Times New Roman", serif;
     }
 
     .hero-card p {
@@ -268,34 +281,19 @@
       color: var(--text-main);
     }
 
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 9px;
-      border-radius: 999px;
-      background: rgba(0, 0, 0, 0.45);
-      font-size: 0.7rem;
-      margin-bottom: 10px;
-    }
-
-    .hero-badge span {
-      font-size: 0.8rem;
-    }
-
     .mini-grid {
       margin-top: 16px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 12px;
-      font-size: 0.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+      font-size: 0.82rem;
     }
 
     .mini-tile {
-      padding: 10px 10px 11px;
-      border-radius: 16px;
-      background: rgba(0, 0, 0, 0.28);
-      border: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 10px 11px;
+      border-radius: 18px;
+      background: rgba(0, 0, 0, 0.32);
+      border: 1px solid rgba(239, 230, 219, 0.16);
     }
 
     .mini-label {
@@ -303,46 +301,36 @@
       margin-bottom: 4px;
     }
 
-    .mini-price {
-      margin-top: 4px;
-      font-weight: 600;
-      color: var(--accent);
-    }
-
     /* SECTION WRAPPER */
     section {
-      margin-bottom: 52px;
+      margin-bottom: 54px;
     }
 
     .section-heading {
       font-family: "Georgia", "Times New Roman", serif;
       font-size: 1.8rem;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .section-sub {
-      font-size: 0.95rem;
+      font-size: 0.96rem;
       color: var(--text-muted);
       max-width: 640px;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
 
     /* ABOUT / PROVIDERS */
     .about-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 24px;
+      gap: 22px;
     }
 
     .about-card {
-      background: rgba(0, 0, 0, 0.2);
+      background: var(--surface-soft);
       border-radius: var(--radius-xl);
-      padding: 20px 20px 18px;
+      padding: 20px 18px 18px;
       box-shadow: var(--shadow-soft);
-    }
-
-    .about-card + .about-card {
-      background: rgba(0, 0, 0, 0.15);
     }
 
     .provider-name {
@@ -351,7 +339,7 @@
     }
 
     .provider-title {
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       color: var(--text-muted);
       margin-bottom: 6px;
     }
@@ -359,7 +347,7 @@
     .tag-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 7px;
       margin-top: 9px;
     }
 
@@ -367,21 +355,27 @@
       font-size: 0.72rem;
       padding: 4px 9px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      background: rgba(0, 0, 0, 0.18);
+      border: 1px solid rgba(239, 230, 219, 0.26);
+      background: rgba(0, 0, 0, 0.22);
     }
 
-    /* PRODUCTS */
+    /* PRODUCT / PRICING */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 20px;
+    }
+
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+      gap: 16px;
     }
 
     .product-card {
-      background: rgba(0, 0, 0, 0.22);
+      background: var(--surface-soft);
       border-radius: 20px;
-      padding: 18px 16px 18px;
+      padding: 17px 15px 17px;
       box-shadow: var(--shadow-soft);
       display: flex;
       flex-direction: column;
@@ -389,13 +383,13 @@
     }
 
     .product-title {
-      font-weight: 700;
-      font-size: 1.02rem;
+      font-weight: 600;
+      font-size: 1rem;
       margin-bottom: 3px;
     }
 
     .product-subtitle {
-      font-size: 0.8rem;
+      font-size: 0.76rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
       color: var(--accent);
@@ -403,13 +397,13 @@
     }
 
     .product-body {
-      font-size: 0.88rem;
+      font-size: 0.87rem;
       color: var(--text-main);
     }
 
     .product-price {
       margin-top: 10px;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 600;
       color: var(--accent);
     }
@@ -425,8 +419,8 @@
       font-size: 0.72rem;
       padding: 4px 9px;
       border-radius: 999px;
-      background: rgba(0, 0, 0, 0.32);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(239, 230, 219, 0.18);
     }
 
     .note-small {
@@ -435,18 +429,19 @@
       margin-top: 8px;
     }
 
-    /* HOW IT WORKS */
+    /* PROGRAM STEPS */
     .steps {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
+      gap: 16px;
     }
 
     .step-card {
-      background: rgba(0, 0, 0, 0.2);
+      background: var(--surface-soft);
       border-radius: 18px;
       padding: 13px 12px 14px;
       font-size: 0.86rem;
+      box-shadow: var(--shadow-soft);
     }
 
     .step-number {
@@ -464,16 +459,16 @@
 
     /* QUESTIONNAIRE */
     .questionnaire {
-      background: #f8efe7;
-      color: #3a2718;
+      background: #f5e7d7;
+      color: #3a2414;
       border-radius: var(--radius-xl);
-      padding: 22px 20px 26px;
+      padding: 22px 20px 24px;
       box-shadow: var(--shadow-soft);
     }
 
     .questionnaire h2,
     .questionnaire p {
-      color: #3a2718;
+      color: #3a2414;
     }
 
     .form-grid {
@@ -501,13 +496,15 @@
       color: #7a5a42;
     }
 
-    input, select, textarea {
+    input,
+    select,
+    textarea {
       border-radius: 999px;
       border: 1px solid #d5bca4;
       padding: 8px 11px;
       font-size: 0.86rem;
       outline: none;
-      background: #fff;
+      background: #ffffff;
     }
 
     textarea {
@@ -537,20 +534,15 @@
     }
 
     .form-footer {
-      margin-top: 14px;
+      margin-top: 16px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 10px;
     }
 
-    .form-footer small {
-      font-size: 0.74rem;
-      color: #7f6149;
-    }
-
     .btn-form {
-      background: #3a2718;
+      background: #3a2414;
       color: #f7e7d7;
       border-radius: 999px;
       border: none;
@@ -558,21 +550,20 @@
       font-size: 0.9rem;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.2s ease, transform 0.1s ease;
+      transition: background 0.15s ease, transform 0.1s ease;
     }
 
     .btn-form:hover {
-      background: #1f140c;
+      background: #221309;
       transform: translateY(-1px);
     }
 
-    /* FAQ + FOOTER */
-    .two-col {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 18px;
+    .form-footer small {
+      font-size: 0.74rem;
+      color: #7f6149;
     }
 
+    /* FAQ + FOOTER */
     .faq-item {
       margin-bottom: 14px;
       font-size: 0.9rem;
@@ -584,11 +575,11 @@
     }
 
     footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.22);
+      border-top: 1px solid rgba(239, 230, 219, 0.3);
       padding-top: 18px;
       font-size: 0.78rem;
       color: var(--text-muted);
-      margin-top: 18px;
+      margin-top: 20px;
     }
 
     footer a {
@@ -607,29 +598,29 @@
       .two-col {
         grid-template-columns: 1fr;
       }
+      .hero-card {
+        margin-top: -4px;
+      }
     }
 
     @media (max-width: 720px) {
       .nav-links {
         display: none;
       }
+      .page {
+        padding-inline: 14px;
+      }
       .hero {
         padding-top: 26px;
       }
-      .hero-card {
-        margin-top: 2px;
-      }
       .form-grid {
         grid-template-columns: 1fr;
-      }
-      .page {
-        padding-inline: 14px;
       }
     }
 
     @media (max-width: 480px) {
       .hero h1 {
-        font-size: 2.1rem;
+        font-size: 2.2rem;
       }
       .cards-grid {
         gap: 14px;
@@ -652,74 +643,82 @@
         <div class="nav-brand-text">heal wellness</div>
       </div>
       <div class="nav-links">
-        <a href="#estriol">Estriol Cream</a>
+        <a href="#estriol">Estriol</a>
         <a href="#peptides">Peptides</a>
-        <a href="#glp1">GLP-1 Program</a>
-        <a href="#how-it-works">How It Works</a>
-        <button class="nav-cta" onclick="scrollToSection('quiz')">Start Questionnaire</button>
+        <a href="#glp1">GLP-1</a>
+        <a href="#how-it-works">How it works</a>
+        <button class="nav-cta" type="button" onclick="scrollToSection('quiz')">
+          Get started
+        </button>
       </div>
     </header>
 
     <!-- HERO -->
     <section class="hero">
       <div>
-        <div class="eyebrow">Medical-grade skincare • peptides • metabolic care</div>
-        <h1>Feel silky, strong and in control of your health.</h1>
+        <div class="eyebrow">Modern hormone-aware skincare & metabolic care</div>
+        <h1>Silky skin. Strong metabolism. Science on your side.</h1>
         <p class="hero-sub">
-          HEAL Wellness, led by <strong>Dr. Gunjan Raina</strong> and <strong>Jude Marino</strong>, blends
-          advanced estriol cream, targeted peptide therapies and GLP-1 metabolic programs to help you look
-          and feel like yourself again.
+          HEAL Wellness, led by <strong>Dr. Gunjan Raina</strong> and
+          <strong>Jude Marino</strong>, combines estriol facial cream, targeted peptides
+          and GLP-1 programs so you can feel confident in your skin and your health.
         </p>
         <div class="hero-bullets">
-          <div class="pill">Estriol facial cream for luminous, silky skin</div>
-          <div class="pill">Evidence-informed peptide protocols</div>
-          <div class="pill">Physician-guided GLP-1 programs</div>
-          <div class="pill">Personalized to your goals & labs</div>
+          <div class="pill">Estriol cream for a soft, silky complexion</div>
+          <div class="pill">Doctor-guided peptide protocols</div>
+          <div class="pill">GLP-1 programs for the right patients</div>
         </div>
 
         <div class="hero-ctas">
-          <button class="btn-primary" onclick="scrollToSection('quiz')">
-            Take the 3-minute HEAL Questionnaire
+          <button class="btn-primary" type="button" onclick="scrollToSection('quiz')">
+            Start your 3-minute intake
           </button>
-          <button class="btn-ghost" onclick="scrollToSection('peptides')">
-            Explore estriol & peptides
+          <button class="btn-ghost" type="button" onclick="scrollToSection('peptides')">
+            View pricing & offerings
           </button>
         </div>
         <p class="hero-note">
-          Online assessments are reviewed by our clinical team before any prescription or recommendation is made.
+          Your intake is reviewed by our clinical team. You’re only charged if you’re approved
+          and choose to start a plan.
         </p>
       </div>
 
       <aside class="hero-card">
         <div class="hero-card-inner">
-          <div class="hero-card-tag">Featured: Estriol Glow Cream</div>
-          <h2>Silky, smooth, “bare-faced confident” skin.</h2>
+          <div class="hero-card-tag">Featured</div>
+          <h2>Estriol Glow Cream for women</h2>
           <p>
-            Our estriol-based cream for women is designed to support a softer, smoother complexion with
-            a hydrated, velvety finish. Many patients describe it as a “silk filter” for their face.
+            Our signature estriol-based cream is designed to leave your face feeling
+            silky, smooth and hydrated—like a soft filter for your bare skin.
           </p>
 
           <div class="mini-grid">
             <div class="mini-tile">
               <div class="mini-label">What it may support</div>
-              <div>• Skin hydration & glow<br />• Fine-line appearance<br />• Overall skin comfort</div>
+              <div>
+                • Smoother, “silk” skin feel<br />
+                • Fine line & dryness appearance<br />
+                • Comfortable, hydrated glow
+              </div>
             </div>
             <div class="mini-tile">
-              <div class="mini-label">Perfect for</div>
-              <div>Women noticing dryness, dullness or changes in their skin as hormones shift.</div>
+              <div class="mini-label">Ideal for</div>
+              <div>
+                Women noticing dryness or dullness as hormones shift and wanting
+                a non-invasive, topical option.
+              </div>
             </div>
           </div>
         </div>
       </aside>
     </section>
 
-    <!-- ABOUT / PROVIDERS -->
+    <!-- ABOUT -->
     <section id="about">
-      <h2 class="section-heading">Meet HEAL Wellness</h2>
+      <h2 class="section-heading">Care, not quick fixes</h2>
       <p class="section-sub">
-        HEAL Wellness LLC was created to bridge science, safety and beauty. We partner with regulated partner
-        pharmacies and use doctor-developed protocols so you can access modern therapies without feeling lost,
-        rushed or dismissed.
+        HEAL Wellness LLC partners with regulated pharmacies and uses physician-developed
+        protocols. Everything is built around safety, evidence and your real-world lifestyle.
       </p>
 
       <div class="about-grid">
@@ -727,13 +726,14 @@
           <div class="provider-name">Dr. Gunjan Raina</div>
           <div class="provider-title">Physician Partner • Women’s Health & Integrative Care</div>
           <p>
-            Dr. Raina helps design protocols that respect both your lab work and your lifestyle. Her focus:
-            practical, compassionate, evidence-informed care that actually fits real life.
+            Dr. Raina shapes your protocol with both data and empathy—reviewing your history,
+            labs and goals to decide whether estriol, peptides, GLP-1s or other options
+            make sense for you.
           </p>
           <div class="tag-row">
             <span class="tag">Women’s hormone health</span>
             <span class="tag">Estriol & topical therapies</span>
-            <span class="tag">Precision peptide integration</span>
+            <span class="tag">Safety-first prescribing</span>
           </div>
         </div>
 
@@ -743,64 +743,64 @@
             Co-Founder • Certified Clinical Medical Assistant & Peptide Integration Specialist
           </div>
           <p>
-            Jude connects the science to everyday habits—guiding you through peptide options, GLP-1 programs
-            and lifestyle upgrades so you’re never guessing what comes next.
+            Jude turns the plan into a clear, step-by-step journey—guiding you through injections,
+            skincare routines and metabolic habits so you always know what to do next.
           </p>
           <div class="tag-row">
-            <span class="tag">Peptide & GLP-1 coaching</span>
-            <span class="tag">Nutrition & behavior change</span>
-            <span class="tag">Ongoing support & accountability</span>
+            <span class="tag">Peptide coaching</span>
+            <span class="tag">GLP-1 program support</span>
+            <span class="tag">Practical nutrition guidance</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PRODUCTS: ESTRIOL + PEPTIDES + GLP1 -->
+    <!-- ESTRIOL -->
     <section id="estriol">
-      <h2 class="section-heading">Estriol Cream for Women</h2>
+      <h2 class="section-heading">Estriol Cream: your “silk filter” in a jar</h2>
       <p class="section-sub">
-        Our signature estriol facial cream is crafted to leave your skin feeling <strong>silky, cushioned and
-        smooth</strong>. Think: hydrated glow, soft bounce and a comfortable “I-woke-up-like-this” feel.
-        Your exact formula and usage are always personalized by our clinical team.
+        Our estriol facial cream is crafted for women who want skin that feels silky and cushioned,
+        not tight or dull. Each prescription is personalized after a clinical review.
       </p>
 
-      <div class="two-col" style="margin-bottom: 16px;">
+      <div class="two-col" style="margin-bottom: 18px;">
         <div>
-          <div class="product-card" style="background: rgba(0,0,0,0.27);">
+          <div class="product-card" style="background: var(--surface-strong);">
             <div>
-              <div class="product-subtitle">Signature Topical</div>
+              <div class="product-subtitle">Topical therapy</div>
               <div class="product-title">Estriol Glow Cream</div>
               <div class="product-body">
-                Designed specifically for women, this topical cream may help:
+                Designed to:
                 <ul style="margin: 8px 0 0 18px;">
                   <li>Support a smoother, silk-like texture</li>
-                  <li>Visibly soften the look of fine lines & dryness</li>
-                  <li>Promote a dewy, comfortable complexion</li>
+                  <li>Soften the look of fine lines and dryness</li>
+                  <li>Leave skin feeling hydrated, bouncy and comfortable</li>
                 </ul>
               </div>
               <div class="chip-row">
                 <span class="chip">Silky finish</span>
                 <span class="chip">Hydration support</span>
-                <span class="chip">Even-tone appearance</span>
+                <span class="chip">Non-invasive</span>
               </div>
             </div>
             <div class="note-small">
-              Final strength and application schedule are determined after your online questionnaire and
-              provider review.
+              Final strength, base and application schedule are determined after your online questionnaire
+              and provider review.
             </div>
           </div>
         </div>
         <div>
-          <img src="raina-favs.png" alt="Raina's favorite peptides" />
+          <img src="raina-favs.png" alt="Raina’s favorite peptide options" />
         </div>
       </div>
     </section>
 
+    <!-- PEPTIDES -->
     <section id="peptides">
-      <h2 class="section-heading">Peptides Raina Loves</h2>
+      <h2 class="section-heading">Peptides Raina loves</h2>
       <p class="section-sub">
-        These are the core peptides we use most often. Your exact combination depends on your goals, history
-        and labs.
+        These are the core peptides we reach for most often. Pricing is transparent; your exact plan
+        depends on your goals, history and labs.
       </p>
 
       <div class="cards-grid">
@@ -809,7 +809,7 @@
             <div class="product-subtitle">Gut & tissue support</div>
             <div class="product-title">BPC-157</div>
             <div class="product-body">
-              Commonly used to support healing, inflammation balance and gut comfort.
+              Commonly used to support healing, inflammation balance and gut comfort for active patients.
             </div>
             <div class="chip-row">
               <span class="chip">Healing support</span>
@@ -825,7 +825,7 @@
             <div class="product-subtitle">Recovery & mobility</div>
             <div class="product-title">TB-500</div>
             <div class="product-body">
-              Often chosen to support recovery, flexibility and tissue repair for active lifestyles.
+              Often chosen to support recovery, flexibility and tissue repair around training and life.
             </div>
             <div class="chip-row">
               <span class="chip">Recovery</span>
@@ -844,9 +844,9 @@
               A copper peptide used to support a youthful appearance, skin healing and hair vitality.
             </div>
             <div class="chip-row">
-              <span class="chip">Anti-aging appearance</span>
-              <span class="chip">Skin healing</span>
-              <span class="chip">Hair support</span>
+              <span class="chip">Skin appearance</span>
+              <span class="chip">Healing support</span>
+              <span class="chip">Hair vitality</span>
             </div>
           </div>
           <div class="product-price">$174 / vial</div>
@@ -857,7 +857,8 @@
             <div class="product-subtitle">Performance blend</div>
             <div class="product-title">Wolverine</div>
             <div class="product-body">
-              A blend of BPC-157 &amp; TB-500 for patients who may benefit from combined recovery and healing support.
+              A blend of BPC-157 &amp; TB-500 for patients who may benefit from combined healing
+              and recovery support.
             </div>
             <div class="chip-row">
               <span class="chip">Blend</span>
@@ -873,7 +874,7 @@
             <div class="product-subtitle">Glow blend</div>
             <div class="product-title">Glow</div>
             <div class="product-body">
-              A premium blend of Wolverine + GHK-Cu designed to support recovery, skin radiance and overall vitality.
+              A premium blend of Wolverine + GHK-Cu designed to support recovery, radiance and overall vitality.
             </div>
             <div class="chip-row">
               <span class="chip">Recovery + glow</span>
@@ -892,9 +893,9 @@
               Used to support energy, focus, metabolic health and cellular repair as part of a comprehensive plan.
             </div>
             <div class="chip-row">
-              <span class="chip">Energy support</span>
+              <span class="chip">Energy</span>
               <span class="chip">Focus</span>
-              <span class="chip">Metabolism & repair</span>
+              <span class="chip">Metabolic support</span>
             </div>
           </div>
           <div class="product-price">$249 / vial</div>
@@ -902,7 +903,7 @@
       </div>
 
       <p class="note-small">
-        *Discounted membership pricing available for 3, 6 and 12 month subscriptions.
+        *Discounted membership pricing available for 3, 6 and 12-month subscriptions.
         All therapies are prescribed and dosed only after provider review and, when appropriate, lab work.
       </p>
 
@@ -911,30 +912,30 @@
       </div>
     </section>
 
+    <!-- GLP1 -->
     <section id="glp1">
       <h2 class="section-heading">GLP-1 Metabolic Reset Programs</h2>
       <p class="section-sub">
         For appropriate patients, HEAL offers GLP-1–based programs that combine medication, peptides,
-        nutrition and accountability. We’re focused on <strong>safe, sustainable metabolic health</strong>,
-        not quick fixes.
+        nutrition and accountability. The focus is long-term metabolic health—not crash dieting.
       </p>
 
       <div class="two-col">
         <div>
           <div class="step-card">
             <div class="step-number">Program focus</div>
-            <div class="step-title">More than just a shot.</div>
+            <div class="step-title">More than just an injection.</div>
             <p>
-              We combine GLP-1 medications (when clinically appropriate) with peptide strategies, lifestyle
-              coaching and regular follow-up so you have support at every step.
+              We combine GLP-1 medications (when clinically appropriate) with peptide strategies,
+              nutrition guidance and regular check-ins to support real lifestyle change.
             </p>
           </div>
           <div class="step-card" style="margin-top: 10px;">
             <div class="step-number">Safety first</div>
             <div class="step-title">Screened & supervised.</div>
             <p>
-              Every GLP-1 plan starts with a full questionnaire, medical history review and,
-              when needed, lab work. You’ll discuss benefits, risks and alternatives before starting.
+              Every GLP-1 plan starts with an intake, provider review and, when needed, lab work.
+              You’ll discuss benefits, risks and alternatives before starting.
             </p>
           </div>
         </div>
@@ -942,7 +943,7 @@
           <ul style="font-size: 0.9rem; list-style: disc; margin-left: 18px;">
             <li>Designed for adults who meet clinical criteria for GLP-1 medications.</li>
             <li>Includes education on nutrition, movement and long-term habits.</li>
-            <li>Carefully monitored to watch for side effects and progress.</li>
+            <li>Carefully monitored to track side effects, progress and dose changes.</li>
           </ul>
           <p class="note-small" style="margin-top: 10px;">
             GLP-1 medications are not right for everyone and are only prescribed when medically appropriate.
@@ -953,46 +954,48 @@
 
     <!-- HOW IT WORKS -->
     <section id="how-it-works">
-      <h2 class="section-heading">How HEAL Works</h2>
+      <h2 class="section-heading">How HEAL works</h2>
       <p class="section-sub">
-        We mirror streamlined, modern care platforms but with a deeply personal touch. Here’s what happens
-        when you start your HEAL questionnaire.
+        Similar to modern platforms like Alloy, everything starts online. From there,
+        you choose the plan that fits your life.
       </p>
 
       <div class="steps">
         <div class="step-card">
           <div class="step-number">Step 1</div>
-          <div class="step-title">Complete your online questionnaire</div>
-          <p>Tell us about your goals, symptoms, history and current medications—takes about 3 minutes.</p>
+          <div class="step-title">Complete your intake</div>
+          <p>Answer a few questions about your goals, history and current medications.</p>
         </div>
         <div class="step-card">
           <div class="step-number">Step 2</div>
           <div class="step-title">Clinical review</div>
-          <p>A provider reviews your answers and, when needed, orders labs or requests additional details.</p>
+          <p>A provider reviews your intake and may request labs or clarifying details.</p>
         </div>
         <div class="step-card">
           <div class="step-number">Step 3</div>
-          <div class="step-title">Personalized plan</div>
-          <p>We design a plan that may include estriol cream, peptides, GLP-1s or other options tailored to you.</p>
+          <div class="step-title">Choose your plan</div>
+          <p>
+            If approved, you’ll see recommended options and transparent pricing before you
+            decide and pay.
+          </p>
         </div>
         <div class="step-card">
           <div class="step-number">Step 4</div>
           <div class="step-title">Ongoing support</div>
-          <p>We track your response, adjust as needed and support your long-term goals—not just a single script.</p>
+          <p>We follow up, adjust as needed and support you through each phase of treatment.</p>
         </div>
       </div>
     </section>
 
     <!-- QUESTIONNAIRE -->
     <section id="quiz" class="questionnaire">
-      <h2>Start Your HEAL Wellness Questionnaire</h2>
+      <h2>Start your HEAL Wellness intake</h2>
       <p>
-        This short form helps our team understand if estriol cream, peptide therapy, GLP-1 medications
-        or a combination may be appropriate for you. Completing the questionnaire does not obligate you
-        to start treatment.
+        This secure form helps us decide if estriol cream, peptide therapy, GLP-1 medications
+        or a combination may be right for you. You’ll see next steps and pricing before you commit.
       </p>
 
-      <!-- NOTE: replace the "action" URL below with your form service (e.g. Formspree, HubSpot, etc.) -->
+      <!-- TODO: Replace action with your form / CRM / payment platform endpoint -->
       <form id="healForm" action="#" method="post" onsubmit="handleSubmit(event)">
         <div class="form-grid">
           <div class="form-group">
@@ -1025,13 +1028,12 @@
             <div class="checkbox-group">
               <label><input type="radio" name="sex" value="female" required /> Female</label>
               <label><input type="radio" name="sex" value="male" /> Male</label>
-              <label><input type="radio" name="sex" value="intersex" /> Intersex / prefer not to say</label>
+              <label><input type="radio" name="sex" value="other" /> Intersex / prefer not to say</label>
             </div>
           </div>
 
           <div class="form-group full-width">
-            <label>What are your primary goals?</label>
-            <span class="helper">Select all that apply.</span>
+            <label>Primary goals (select all that apply)</label>
             <div class="checkbox-group">
               <label><input type="checkbox" name="goals" value="skin" /> Smoother, more radiant skin</label>
               <label><input type="checkbox" name="goals" value="recovery" /> Faster recovery / less soreness</label>
@@ -1052,8 +1054,10 @@
           </div>
 
           <div class="form-group full-width">
-            <label for="conditions">Any major medical conditions we should know about?</label>
-            <span class="helper">Examples: heart disease, kidney disease, pancreatitis, history of cancer, blood-clotting disorders, etc.</span>
+            <label for="conditions">Major medical conditions</label>
+            <span class="helper">
+              Examples: heart disease, kidney disease, pancreatitis, history of cancer, blood-clotting disorders, etc.
+            </span>
             <textarea id="conditions" name="conditions"></textarea>
           </div>
 
@@ -1074,41 +1078,52 @@
         </div>
 
         <div class="form-footer">
-          <button class="btn-form" type="submit">Submit Questionnaire</button>
+          <button class="btn-form" type="submit">Submit & see next steps</button>
           <small>
-            By submitting, you agree that HEAL Wellness may contact you about your questionnaire.
-            This form does not establish a patient-provider relationship and is not emergency care.
+            By submitting, you agree that HEAL Wellness may contact you about your intake.
+            This form does not replace in-person emergency care or create a patient-provider relationship
+            until your intake is approved and you accept a plan.
           </small>
         </div>
       </form>
     </section>
 
-    <!-- FAQ + FOOTER -->
-    <section id="faq" style="margin-top: 36px;">
+    <!-- FAQ & FOOTER -->
+    <section id="faq" style="margin-top: 34px;">
       <div class="two-col">
         <div>
-          <h2 class="section-heading">Questions we hear a lot</h2>
+          <h2 class="section-heading">Questions we hear often</h2>
           <div class="faq-item">
-            <h3>Do I automatically get a prescription after filling this out?</h3>
-            <p>No. Your information is reviewed by our clinical team first. We only recommend therapies that appear safe and appropriate for you.</p>
+            <h3>Will I automatically get a prescription?</h3>
+            <p>
+              No. Every intake is reviewed by our clinical team. We only recommend therapies that appear
+              safe and appropriate based on your information.
+            </p>
           </div>
           <div class="faq-item">
-            <h3>Are these treatments right for everyone?</h3>
-            <p>Not necessarily. Some medical conditions, medications or histories may mean we suggest a different plan—or recommend you work with another specialist.</p>
+            <h3>When do I pay?</h3>
+            <p>
+              After review, you’ll see recommended options and pricing. You decide whether to move forward.
+              You’re only charged if you choose a plan.
+            </p>
           </div>
           <div class="faq-item">
-            <h3>Can I combine estriol cream, peptides and GLP-1s?</h3>
-            <p>Sometimes, yes. Many patients benefit from a layered approach, but combinations are only used when clinically appropriate and carefully monitored.</p>
+            <h3>Can I combine estriol, peptides and GLP-1s?</h3>
+            <p>
+              Sometimes. Many patients benefit from a layered approach, but combinations are only used when
+              medically appropriate and closely monitored.
+            </p>
           </div>
         </div>
 
         <div>
-          <h2 class="section-heading">Let’s talk about your goals</h2>
+          <h2 class="section-heading">Ready when you are</h2>
           <p style="font-size: 0.9rem; color: var(--text-muted);">
-            Unsure where to start? Submit your questionnaire and we’ll review it and follow up with next steps.
+            Take a few minutes to share your story. We’ll review it and send you clear next steps,
+            including pricing, so you can decide what feels right.
           </p>
-          <button class="btn-primary" style="margin-top: 10px;" onclick="scrollToSection('quiz')">
-            Start the HEAL Questionnaire
+          <button class="btn-primary" type="button" style="margin-top: 10px;" onclick="scrollToSection('quiz')">
+            Start my HEAL intake
           </button>
         </div>
       </div>
@@ -1134,8 +1149,8 @@
     function handleSubmit(e) {
       e.preventDefault();
       alert(
-        "Thank you for completing the HEAL Wellness questionnaire. " +
-        "We will contact you after a member of our team has reviewed your information."
+        "Thank you for completing the HEAL Wellness intake. " +
+        "A member of our clinical team will review your information and follow up with next steps."
       );
       e.target.reset();
     }
