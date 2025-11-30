@@ -39,11 +39,6 @@
       text-decoration: none;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
     .page {
       max-width: 1120px;
       margin: 0 auto;
@@ -77,18 +72,15 @@
       width: 40px;
       height: 40px;
       border-radius: 12px;
-      overflow: hidden;
       box-shadow: var(--shadow-soft);
       background: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    .logo-mark img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 1.3rem;
+      color: #a24c24;
+      text-transform: lowercase;
     }
 
     .nav-brand-text {
@@ -636,7 +628,8 @@
   <div class="page">
     <!-- NAV -->
     <header class="nav">
-        </div>
+      <div class="nav-left">
+        <div class="logo-mark">h</div>
         <div class="nav-brand-text">heal wellness</div>
       </div>
       <div class="nav-links">
@@ -786,6 +779,19 @@
             </div>
           </div>
         </div>
+        <div>
+          <div class="product-card">
+            <div class="product-subtitle">Real-world benefits</div>
+            <div class="product-title">What patients often notice</div>
+            <div class="product-body">
+              <ul style="margin: 8px 0 0 18px;">
+                <li>A soft, silky feel right after application</li>
+                <li>More comfortable skin under makeup or bare-faced</li>
+                <li>A smoother canvas for other skincare products</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -900,8 +906,6 @@
         *Discounted membership pricing available for 3, 6 and 12-month subscriptions.
         All therapies are prescribed and dosed only after provider review and, when appropriate, lab work.
       </p>
-
-      
     </section>
 
     <!-- GLP1 -->
